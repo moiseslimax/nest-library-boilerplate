@@ -4,9 +4,12 @@ import {
   Column,
   UpdateDateColumn,
   CreateDateColumn,
+  BeforeInsert,
 } from 'typeorm';
 
-@Entity({ name: 'UserTable' })
+import * as bcrypt from 'bcrypt';
+
+@Entity()
 export class User {
   @PrimaryGeneratedColumn({ type: 'bigint' })
   id: string;
@@ -28,4 +31,14 @@ export class User {
 
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
+
+  @BeforeInsert()
+  async hashPassword() {
+    console.log('aqui')
+    this.password = await bcrypt.hash(this.password, 8);
+  }
+
+  async validatePassword(password: string): Promise<boolean> {
+    return bcrypt.compare(password, this.password);
+  }
 }

@@ -27,6 +27,11 @@ export class userTable1617036632958 implements MigrationInterface {
           {
             type: 'varchar',
             length: '100',
+            name: 'password',
+          },
+          {
+            type: 'varchar',
+            length: '100',
             name: 'emailAddress',
           },
           {
