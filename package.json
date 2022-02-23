@@ -22,7 +22,7 @@
     "migration:create": "ts-node node_modules/typeorm/cli.js migration:create -n",
     "migration:run": "ts-node node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node node_modules/.bin/typeorm migration:revert",
-    "migration:generate": "ts-node node_modules/.bin/typeorm migration:generate -n"
+    "migration:generate": "ts-node node_modules/.bin/typeorm migration:generate -d ./migration -n"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",

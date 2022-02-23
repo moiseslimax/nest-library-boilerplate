@@ -36,7 +36,6 @@ export class ConfigService implements OnModuleInit {
     envConfig.typeormPassword = config.TYPEORM_PASSWORD;
     envConfig.typeormConnection = config.TYPEORM_CONNECTION;
 
-
     return envConfig;
   }
 

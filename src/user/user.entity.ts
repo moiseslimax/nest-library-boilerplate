@@ -6,7 +6,7 @@ import {
   CreateDateColumn,
 } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'UserTable' })
 export class User {
   @PrimaryGeneratedColumn({ type: 'bigint' })
   id: string;

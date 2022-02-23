@@ -22,7 +22,7 @@ import { User } from './user/user.entity';
           User
         ],
         synchronize: false,
-        migrationsRun: true,
+        migrationsRun: false,
         migrations: [],
       }),
     }),
