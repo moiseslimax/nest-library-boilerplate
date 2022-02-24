@@ -22,10 +22,18 @@ export class userTable1617036632958 implements MigrationInterface {
           {
             type: 'varchar',
             length: '100',
+<<<<<<< Updated upstream
             name: 'username',
           },
           {
             type: 'varchar',
+=======
+            name: 'password',
+          },
+          {
+            type: 'varchar',
+            isUnique: true,
+>>>>>>> Stashed changes
             length: '100',
             name: 'password',
           },
