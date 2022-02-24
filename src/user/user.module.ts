@@ -6,12 +6,12 @@ import { LocalStrategy } from 'src/auth/strategy/local.strategy';
 import { UserController } from './user.controller';
 import { User } from './user.entity';
 import { UserRepository } from './user.repository';
+import { UserService } from './user.service';
 
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, UserRepository])],
   controllers: [UserController],
-  providers: [],
-  exports: [],
+  providers: [UserService, UserRepository]
 })
 export class UserModule { }
