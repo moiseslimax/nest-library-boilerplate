@@ -1,4 +1,4 @@
-import { CodedException } from "src/utils/code-exception";
+import { CodedException } from 'src/utils/code-exception';
 
 export class UserNotFoundException extends CodedException {
   constructor() {
