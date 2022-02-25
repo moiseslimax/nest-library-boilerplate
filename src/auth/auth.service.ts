@@ -24,7 +24,6 @@ export class AuthService {
         };
     }
 
-
     async login(userLoginData: LoginDTO) {
 
         const user = await this.validateUser(userLoginData);

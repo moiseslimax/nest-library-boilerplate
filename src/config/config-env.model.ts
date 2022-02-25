@@ -1,8 +1,7 @@
 import {
   IsString,
   IsNumber,
-  IsPositive,
-  IsEnum,
+  IsPositive
 } from 'class-validator';
 
 export enum NodeEnv {
@@ -37,8 +36,6 @@ export class ConfigEnv {
 
   @IsString()
   typeormConnection: 'mysql';
-
-
 
   get isProduction(): boolean {
     return this.nodeEnv === NodeEnv.Production;
