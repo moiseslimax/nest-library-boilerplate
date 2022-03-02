@@ -37,6 +37,9 @@ export class ConfigEnv {
   @IsString()
   typeormConnection: 'mysql';
 
+  @IsString()
+  secretJWT: string;
+
   get isProduction(): boolean {
     return this.nodeEnv === NodeEnv.Production;
   }

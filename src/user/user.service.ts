@@ -17,4 +17,11 @@ export class UserService {
     const newUser = this.userRepository.create(user)
     return await this.userRepository.save(newUser);
   }
+
+  async getUserProfile(id: string): Promise<User> {
+    const user = await this.userRepository.findOne(id)
+
+    delete user.password;
+    return user;
+  }
 }
