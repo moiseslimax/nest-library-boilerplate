@@ -2,6 +2,7 @@ import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import * as dotenv from 'dotenv';
 import { validateSync } from 'class-validator';
 import { ConfigEnv, NodeEnv } from './config-env.model';
+import { env } from 'process';
 
 @Injectable()
 export class ConfigService implements OnModuleInit {
@@ -35,6 +36,7 @@ export class ConfigService implements OnModuleInit {
     envConfig.typeormUsername = config.TYPEORM_USERNAME;
     envConfig.typeormPassword = config.TYPEORM_PASSWORD;
     envConfig.typeormConnection = config.TYPEORM_CONNECTION;
+    envConfig.secretJWT = config.SECRET_JWT;
 
     return envConfig;
   }
