@@ -6,15 +6,12 @@ import { Connection } from 'typeorm';
 
 @Injectable()
 export class UserService {
-  private userRepository: UserRepository;
   constructor(
-    private readonly connection: Connection
-  ) {
-    this.userRepository = this.connection.getCustomRepository(UserRepository);
-  }
+    private readonly userRepository: UserRepository,
+  ) { }
 
   async register(user: RegisterDTO): Promise<User> {
-    const newUser = this.userRepository.create(user)
+    const newUser = await this.userRepository.create(user);
     return await this.userRepository.save(newUser);
   }
 
