@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Post, Res } from '@nestjs/common';
 import { Response } from 'express';
+import { FindUserDTO } from './dto/findUserDTO';
 import { RegisterDTO } from './dto/registerDTO';
 import { UserService } from './user.service';
 
@@ -14,9 +15,9 @@ export class UserController {
     res.send({ emailAddress }).status(201);
   }
 
-  @Get()
-  async getUserProfile(@Res() res: Response, @Body() params: RegisterDTO) {
-    const user = await this.userService.register(params);
+  @Get('/:id')
+  async getUserProfile(@Res() res: Response, @Body() params: FindUserDTO) {
+    const user = await this.userService.getUserProfile(params.id);
 
     res.send(user).status(200);
   }
