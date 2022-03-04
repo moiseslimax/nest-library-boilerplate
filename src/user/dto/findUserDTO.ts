@@ -1,6 +1,3 @@
-import { IsNumberString } from 'class-validator';
-
-export class FindUserDto {
-  @IsNumberString()
+export class FindUserDTO {
   readonly id: string;
 }

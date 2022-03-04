@@ -1,7 +1,7 @@
-import { RegisterDTO } from "src/user/dto/registerDTO";
-import { User } from "src/user/user.entity";
-import { UserRepository } from "src/user/user.repository";
-import { UserService } from "src/user/user.service";
+import { RegisterDTO } from 'src/user/dto/registerDTO';
+import { User } from 'src/user/user.entity';
+import { UserRepository } from 'src/user/user.repository';
+import { UserService } from 'src/user/user.service';
 
 describe('UserService', () => {
     let userRepository: UserRepository;

@@ -2,7 +2,6 @@ import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import * as dotenv from 'dotenv';
 import { validateSync } from 'class-validator';
 import { ConfigEnv, NodeEnv } from './config-env.model';
-import { env } from 'process';
 
 @Injectable()
 export class ConfigService implements OnModuleInit {
