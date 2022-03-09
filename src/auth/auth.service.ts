@@ -28,11 +28,6 @@ export class AuthService {
 
         const user = await this.validateUser(userLoginData);
 
-        const isValid = await bcrypt.compare(userLoginData.password, user.password);
-
-        if (!isValid) {
-            throw new UnauthorizedException('Wrong Password!');
-        }
 
         return await this.loginWithCredentials(user)
     }
@@ -43,6 +38,14 @@ export class AuthService {
         if (!user) {
             throw new UnauthorizedException('User not found!');
         }
+
+        const isValid = await bcrypt.compare(userLoginData.password, user.password);
+
+        if (!isValid) {
+            throw new UnauthorizedException('Wrong Password!');
+        }
+
+
         return user;
     }
 }

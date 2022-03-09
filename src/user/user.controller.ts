@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
 import { Response } from 'express';
+import { JwtAuthGuard } from 'src/auth/strategy/jwt-auth-guard';
 import { FindUserDTO } from './dto/findUserDTO';
 import { RegisterDTO } from './dto/registerDTO';
 import { UserService } from './user.service';
@@ -15,6 +16,7 @@ export class UserController {
     res.send({ emailAddress }).status(201);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get('/:id')
   async getUserProfile(@Res() res: Response, @Body() params: FindUserDTO) {
     const user = await this.userService.getUserProfile(params.id);
